@@ -32,7 +32,7 @@ io.on('connection', (socket) => {
         socket.broadcast.to(user.room).emit('message', generateMessage('Admin', `${user.username} has joined!`))
         io.to(user.room).emit('roomData', {
             room: user.room,
-            users: getUsersRoom(user.room)
+            users: getUsersRoom(user.room),
         })
         cb()
 
@@ -73,6 +73,6 @@ io.on('connection', (socket) => {
 
 })
 
-server.listen(3000, () => {
+server.listen(port, () => {
     console.log("server up!")
 })
